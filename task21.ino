@@ -2,34 +2,23 @@ int button = 13;
 int red = 9;
 int yellow = 10;
 int white = 11;
-int reading = 0;
-int counter = 0;
-int time = 250;
-
+int currentLED = 9;  
 void setup() {
-for(int i=9;i<=11;i++)
-{
-pinMode
-(i,OUTPUT);}
+  pinMode(red, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(white, OUTPUT);
+  pinMode(button, INPUT);
 }
+
 void loop() {
-for(int
-i
-=
-9;i<=11;i++)
+  if (digitalRead(button) == HIGH) {  
+    digitalWrite(currentLED, HIGH);  
+    delay(500);                      
+    digitalWrite(currentLED, LOW);   
+    currentLED++;  
+    if (currentLED > 11) { 
+      currentLED = 9;
+    }
+  }
+}
 
-{
-digitalWrite(i,HIGH);
-delay(250);
-}
-for(int
-i
-=11;i>=
-9;i--
-)
-
-{
-digitalWrite(i,LOW);
-delay(250);
-}
-}
